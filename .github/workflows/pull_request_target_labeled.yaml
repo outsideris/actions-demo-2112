@@ -1,0 +1,20 @@
+name: Pull Request Target with label
+
+on: 
+  pull_request_target
+    types:
+      - labeled
+
+env: 
+  DEMO_PLAIN: plain-text
+  DEMO_SECRET: ${{ secrets.DEMO_SECRET }}
+
+jobs:
+  test:
+    if: contains(github.event.pull_request.labels.*.name, 'safe to run')
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo $DEMO_PLAIN
+      - run: echo $DEMO_SECRET
+        
