@@ -1,6 +1,12 @@
 name: Workflow Dispatch
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Name'
+        required: true
+        default: 'Outsider'
 
 env: 
   DEMO_PLAIN: plain-text
@@ -12,4 +18,4 @@ jobs:
     steps:
       - run: echo $DEMO_PLAIN
       - run: echo $DEMO_SECRET
-        
+      - run: echo "Hello ${{ github.event.inputs.name }}"
