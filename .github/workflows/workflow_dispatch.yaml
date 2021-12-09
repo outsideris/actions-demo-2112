@@ -1,0 +1,15 @@
+name: Workflow Dispatch
+
+on: workflow_dispatch
+
+env: 
+  DEMO_PLAIN: plain-text
+  DEMO_SECRET: ${{ secrets.DEMO_SECRET }}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo $DEMO_PLAIN
+      - run: echo $DEMO_SECRET
+        
