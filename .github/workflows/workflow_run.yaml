@@ -3,8 +3,7 @@ name: Workflow Run
 on: 
   workflow_run:
     workflows: ["Push & Pull"]
-      types:
-        - completed
+    types: [completed]
 
 env: 
   DEMO_PLAIN: plain-text
