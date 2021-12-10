@@ -1,0 +1,17 @@
+name: Repository Dispatch
+
+on:
+  repository_dispatch:
+    types: [demo]
+
+env: 
+  DEMO_PLAIN: plain-text
+  DEMO_SECRET: ${{ secrets.DEMO_SECRET }}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo $DEMO_PLAIN
+      - run: echo $DEMO_SECRET
+      - run: echo "Hello ${{ github.event.client_payload.name }}"
