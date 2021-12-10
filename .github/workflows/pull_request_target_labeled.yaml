@@ -15,6 +15,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: echo $DEMO_PLAIN
-      - run: echo $DEMO_SECRET
+      - run: echo $DEMO_PLAIN from fork
+      - run: echo $DEMO_SECRET from fork
         
